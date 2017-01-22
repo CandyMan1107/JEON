@@ -1,0 +1,62 @@
+CREATE TABLE user(
+  id INTEGER AUTO_INCREMENT,
+  user_name VARCHAR(20) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  time_stamp DATETIME,
+  PRIMARY KEY(id),
+  UNIQUE KEY user_name_index(user_name)
+) ENGINE = INNODB;
+
+CREATE TABLE status(
+  id INTEGER AUTO_INCREMENT,
+  user_id INTEGER NOT NULL,
+  message VARCHAR(255),
+  time_stamp DATETIME,
+  PRIMARY KEY(id),
+  INDEX user id_index(user_id)
+) ENGINE = INNODB;
+
+ALTER TABLE
+  status
+ADD FOREIGN KEY (user_id) REFERENCES user(id);
+
+================================================================================================================
+================================================================================================================
+================================================================================================================
+
+CREATE TABLE user(
+  id INTEGER AUTO_INCREMENT,
+  user_name VARCHAR(20) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  time_stamp DATETIME,
+  PRIMARY KEY(id),
+  UNIQUE KEY user_name_index(user_name)
+) ENGINE = INNODB;
+
+CREATE TABLE product(
+  id INTEGER AUTO_INCREMENT,
+  user_id VARCHAR(100) NOT NULL,
+  time_stamp DATETIME,
+  pShort VARCHAR(100) NOT NULL,
+  pLong VARCHAR(200) NOT NULL,
+  pType VARCHAR(100) NOT NULL,
+  pPrice INT NOT NULL,
+  pInfo VARCHAR(255) NOT NULL,
+  pCount INT NOT NULL,
+  upfile_name VARCHAR(100),
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE cart(
+  id INTEGER AUTO_INCREMENT,
+  user_id VARCHAR(20) NOT NULL,
+  time_stamp DATETIME,
+  pShort VARCHAR(100) NOT NULL,
+  pLong VARCHAR(200) NOT NULL,
+  pPrice INT NOT NULL,
+  PRIMARY KEY(id)
+);
+
+ALTER TABLE
+  product
+ADD FOREIGN KEY (user_id) REFERENCES user(id);
