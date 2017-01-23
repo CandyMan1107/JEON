@@ -172,16 +172,23 @@ class AccountController extends Controller{
         $pShort = $this->_request->getPost('pShort');
         $pLong = $this->_request->getPost('pLong');
         $pPrice = $this->_request->getPost('pPrice');
+        $pCount = $this->_request->getPost('pCount');
+        $buyNum = $this->_request->getPost('buyNum');
+
+        $pCount -= $buyNum;
 
         $productV = array(
             'user_id'                   => $user['user_name'],
             'time_stamp'                => $now->format('Y-m-d H:i:s'),
             'pShort'                    => $pShort,
             'pLong'                     => $pLong,
-            'pPrice'                    => $pPrice
+            'pPrice'                    => $pPrice,
+            'pCount'                    => $pCount
         );
+
+
         // var_dump($productV);
-        $this->_connect_model->get('User')->addCart($productV);
+        $stt = $this->_connect_model->get('User')->addCart($productV);
 
         echo ("
                 <script>
@@ -189,6 +196,8 @@ class AccountController extends Controller{
                     history.go(-1);
                 </script>
             ");
+
+        return $stt;
     }
 
 }

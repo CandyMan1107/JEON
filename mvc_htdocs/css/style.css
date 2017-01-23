@@ -299,3 +299,7 @@ select {
   height: auto;
   padding: 10px;
 }
+
+.buyNum {
+  width: 50px;
+}

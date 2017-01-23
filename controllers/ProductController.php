@@ -8,7 +8,7 @@
 
 
         /**
-         ******************index********************
+         ****************** ********************
          */
         public function indexAction(){
             $all = $this->_connect_model->get('Product')->getAllList();
@@ -137,6 +137,7 @@
 
                 $index_view = $this->render(array(
                     'statuses' => $dat, //글목록 정보
+                    //'message' => '',  //글작성 전이라 공백처리,form 태그 내 입력창의 입력된 내용
                     '_token' => $this->getToken(self::POST),
                 ));
 
