@@ -185,7 +185,7 @@ class AccountController extends Controller{
 
         echo ("
                 <script>
-                    alert('상품 등록을 완료했습니다.');
+                    alert('상품 구매를 완료했습니다.');
                     history.go(-1);
                 </script>
             ");

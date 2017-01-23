@@ -43,16 +43,16 @@ class BlogApp extends AppBase {
 
       //BlogController 클래스 관련 Routing
  //     '/'                           => array('controller' => 'blog', 'action' => 'index'),  // 작성글 입력
-        '/status/post'                  => array('controller' => 'blog', 'action' => 'post'), // 글작성 버튼 띠용하고 누름
-        '/user/:user_name/status/:id'   => array('controller' => 'blog', 'action' => 'specific'), // 작성글의 상세보기
-        '/user/:user_name'              => array('controller' => 'blog', 'action' => 'user'), // 사용자 작성글 일람
+//        '/status/post'                  => array('controller' => 'blog', 'action' => 'post'), // 글작성 버튼 띠용하고 누름
+//        '/user/:user_name/status/:id'   => array('controller' => 'blog', 'action' => 'specific'), // 작성글의 상세보기
+//        '/user/:user_name'              => array('controller' => 'blog', 'action' => 'user'), // 사용자 작성글 일람
 
 
       //ProductController 클래스 관련 Routing
         '/'                                      => array('controller' => 'product', 'action' => 'index'), // 상품 진열
         '/product/:action'                       => array('controller' => 'product'),
-        '/detail/:id'                            => array('controller' => 'product', 'action' => 'show'),
-        '/product/:id/status/:pShort'            => array('controller' => 'product', 'action' => 'specific'),  // 상품 상세보기
+        '/detail/:id'                            => array('controller' => 'product', 'action' => 'show'), // 상품 상세보기(고객용)
+        '/product/:id/status/:pShort'            => array('controller' => 'product', 'action' => 'specific'),  // 상품 상세보기(관리자용)
         '/download/:show_name'                   => array('controller' => 'product', 'action' => 'download'),
     );
 

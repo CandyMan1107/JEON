@@ -36,7 +36,7 @@
         }
 
         /**
-         ******************상품상세********************
+         ******************상품상세(관리자용)********************
          */
         /// ***getSpecificProduct()***
         public function getSpecificProduct($id, $pShort) {
@@ -53,7 +53,7 @@
         /**
          ******************상품등록********************
          */
-        public function addProduct($productV = array()){
+        public function addProduct($productV){
 //            $now = new DateTime();
 //
 //            $s_fileUpload           = $this->fileUpload("upFile", "./data", "./data/");
@@ -74,7 +74,7 @@
                 VALUES (:user_id, :time_stamp, :pShort, :pLong, :pType, :pPrice, :pInfo, :pCount, :upfile_name);
             ";
 
-            $this->execute($sql, array(
+            $result = $this->execute($sql, array(
                 ':user_id'=>$user_id,
                 ':time_stamp' => $time_stamp,
                 ':pShort'=>$pShort,
@@ -85,6 +85,8 @@
                 ':pCount'=>$pCount,
                 ':upfile_name'=>$s_fileUpload
             ));
+
+            return $result;
         }
 
         // *** getUserData()***
