@@ -83,7 +83,6 @@ class AccountController extends Controller{
   public function indexAction(){ // /views/account/index.php
       $all = $this->_connect_model->get('User')->allCart();
 
-
       $num = count($all);
       // echo $num;
 
