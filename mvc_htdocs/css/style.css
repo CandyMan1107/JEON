@@ -208,15 +208,36 @@ select {
   border-radius: 15px;
   background-color: #ffffff;
   padding: 8px;
-  font-size: 18px;
+  font-size: 50px;
   font-weight: bold;
   color: #1c1c1c;
-  width: 200px;
+  width: 100px;
   height: auto;
-  float: right;
+  float: left;
 }
 
 .back_Btn:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.cart_Btn {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border: 2px solid #f44336;
+  outline: 0;
+  border-radius: 15px;
+  background-color: #ffffff;
+  padding: 8px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #1c1c1c;
+  width: 100px;
+  height: auto;
+  align: center;
+}
+
+.cart_Btn:hover {
   background-color: #f44336;
   color: white;
 }

@@ -48,5 +48,32 @@ class UserModel extends ExecuteModel {
       }
       return false;
     }
+
+    /**
+     ******************CART 등록********************
+     */
+    public function addCart($productV){
+//            $now = new DateTime();
+
+        $user_id                = $productV['user_id'];
+        // echo $user_id;
+        $time_stamp             = $productV['time_stamp'];
+        $pShort                 = $productV['pShort'];
+        $pLong                  = $productV['pLong'];
+        $pPrice                 = $productV['pPrice'];
+
+        $sql = "
+                INSERT INTO cart(user_id, time_stamp, pShort, pLong, pPrice)
+                VALUES (:user_id, :time_stamp, :pShort, :pLong, :pPrice);
+            ";
+
+        $this->execute($sql, array(
+            ':user_id'=>$user_id,
+            ':time_stamp' => $time_stamp,
+            ':pShort'=>$pShort,
+            ':pLong'=>$pLong,
+            ':pPrice'=>$pPrice
+        ));
+    }
   }
 ?>

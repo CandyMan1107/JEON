@@ -14,6 +14,9 @@
 //    "없다!";
 //    }?>
 <div>
+    <input type="button" class="back_Btn" onClick="history.go(-1)" value="<" />
+</div>
+<div>
     <table>
         <tr>
             <td>상품명</td>
@@ -71,7 +74,3 @@
     </table>
 </div>
 <div class="fake"></div>
-<div>
-
-    <input type="button" class="back_Btn" onClick="history.go(-1)" value="목록으로" />
-</div>

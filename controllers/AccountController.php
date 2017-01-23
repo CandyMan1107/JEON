@@ -149,8 +149,38 @@ class AccountController extends Controller{
     }
 
     /**
-     ******************구매목록********************
+     ******************구매목록 insert********************
      */
+    public function insertAction(){
+        $user = $this->_session->get('user');
+
+        if(!$this->_request->isPost()){
+            $this->httpNotFound(); //FileNotFoundException 예외객체를 생성
+        }
+
+        $now = new DateTime();
+
+        $pShort = $this->_request->getPost('pShort');
+        $pLong = $this->_request->getPost('pLong');
+        $pPrice = $this->_request->getPost('pPrice');
+
+        $productV = array(
+            'user_id'                   => $user['user_name'],
+            'time_stamp'                => $now->format('Y-m-d H:i:s'),
+            'pShort'                    => $pShort,
+            'pLong'                     => $pLong,
+            'pPrice'                    => $pPrice
+        );
+        // var_dump($productV);
+        $this->_connect_model->get('User')->addCart($productV);
+
+        echo ("
+                <script>
+                    alert('상품 등록을 완료했습니다.');
+                    history.go(-1);
+                </script>
+            ");
+    }
 
 }
  ?>
