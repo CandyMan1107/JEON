@@ -79,15 +79,25 @@ class AccountController extends Controller{
       '_token' => $this->getToken(self::SIGNUP),
     ),'signup');
   }
+
   public function indexAction(){ // /views/account/index.php
-    $user = $this->_session->get('user');
+      $all = $this->_connect_model->get('User')->allCart();
 
-    $index_view = $this->render(array(
-      'user' => $user
-    ));
 
-    return $index_view;
+      $num = count($all);
+      // echo $num;
+
+      $user = $this->_session->get('user');
+
+      $index_view = $this->render(array(
+          'all'=>$all,
+          'num'=>$num,
+          'user'=>$user
+      ));
+
+      return $index_view;
   }
+
   public function signinAction(){ // /views/account/signin.php
     if($this->_session->isAuthenticated()){
       return $this->redirect('/account');

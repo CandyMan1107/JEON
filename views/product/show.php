@@ -9,7 +9,7 @@
     <img src="/data/<?php print $this->escape($dat['pShort']); ?>.jpg" alt="">
 </div>
 <div class="info_div">
-    <form action="<?php print $base_url; ?>/account/insert" method="post" enctype="multipart/form-data">
+    <form action="<?php print $base_url; ?>/account/insert" method="post">
         <input type="hidden" name="pShort" value="<?php print $this->escape($dat['pShort']); ?>" />
         <input type="hidden" name="pLong" value="<?php print $this->escape($dat['pLong']); ?>" />
         <input type="hidden" name="pPrice" value="<?php print $this->escape($dat['pPrice']); ?>" />

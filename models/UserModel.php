@@ -75,5 +75,19 @@ class UserModel extends ExecuteModel {
             ':pPrice'=>$pPrice
         ));
     }
+
+    /**
+     ******************CART 보여주기********************
+     */
+    public function allCart(){
+        $sql = "
+                SELECT *
+                FROM cart
+            ";
+
+        $allCart = $this->getAllRecord($sql);
+
+        return $allCart;
+    }
   }
 ?>
