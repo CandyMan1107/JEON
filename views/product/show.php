@@ -1,5 +1,6 @@
 <!-- 상품 상세 설명 -->
 <?php $this->setPageTitle('title', '고객용')?>
+<script type="text/javascript" src="/js/buyScript.js"></script>
 <div class="smallFake"></div>
 
 <div>
@@ -22,7 +23,7 @@
         <div class="fake"></div>
         <b><input type="number" name="buyNum" class="buyNum"> 개</b>
         &nbsp;
-        <input type="submit" class="cart_Btn" value="구매하기">
+        <input type="submit" class="cart_Btn" value="구매하기" onclick="buySuccess()">
         <div class="fake"></div>
         <h3><?php print $this->escape($dat['pInfo']); ?></h3>
         <div class="fake"></div>

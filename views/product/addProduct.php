@@ -1,4 +1,5 @@
 <?php $this->setPageTitle('title','상품 등록') ?>
+<script type="text/javascript" src="/js/addScript.js"></script>
 <div class="smallFake"></div>
 <div class="add_div">
 
@@ -17,7 +18,7 @@
 
     <div class="fake"></div>
     <div>
-        <input class="add_Btn" type="submit" value="상품등록" />
+        <input class="add_Btn" type="submit" value="상품등록" onclick="addSuccess()"/>
     </div>
 </form>
 </div>
