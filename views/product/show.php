@@ -23,7 +23,7 @@
         <div class="fake"></div>
         <b><input type="number" name="buyNum" class="buyNum"> 개</b>
         &nbsp;
-        <input type="submit" class="cart_Btn" value="구매하기" onclick="buySuccess()">
+        <input type="submit" class="cart_Btn" value="구매하기">
         <div class="fake"></div>
         <h3><?php print $this->escape($dat['pInfo']); ?></h3>
         <div class="fake"></div>

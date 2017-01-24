@@ -18,7 +18,7 @@
 
     <div class="fake"></div>
     <div>
-        <input class="add_Btn" type="submit" value="상품등록" onclick="addSuccess()"/>
+        <input class="add_Btn" type="submit" value="상품등록"/>
     </div>
 </form>
 </div>

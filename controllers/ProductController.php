@@ -185,14 +185,9 @@
                 'upfile_name'               => $s_fileUpload
             );
             // var_dump($productV);
-            $this->_connect_model->get('Product')->addProduct($productV);
+            $stt = $this->_connect_model->get('Product')->addProduct($productV);
 
-//            echo ("
-//                <script>
-//                    alert('상품 등록을 완료했습니다.');
-//                    history.go(-1);
-//                </script>
-//            ");
+            return $stt;
         }
 
 

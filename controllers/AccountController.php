@@ -178,7 +178,7 @@ class AccountController extends Controller{
         //print $pCount;
         //print $buyNum;
 
-        $pCount -= $buyNum;
+        //$pCount -= $buyNum;
 
         $productV = array(
             'user_id'                   => $user['user_name'],
@@ -199,6 +199,8 @@ class AccountController extends Controller{
                     history.go(-1);
                 </script>
             ");
+
+        return $stt;
     }
 
 }
