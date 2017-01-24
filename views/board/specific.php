@@ -12,7 +12,8 @@
 //    }}
 //    else {
 //    "없다!";
-//    }?>
+//    }
+?>
 <div>
     <input type="button" class="back_Btn" onClick="history.go(-1)" value="<" />
 </div>
@@ -21,37 +22,37 @@
         <tr>
             <td>ID</td>
             <td>
-                <?php print $this->escape($dat['pShort']); ?>
+                <?php print $this->escape($dat['user_id']); ?>
             </td>
         </tr>
         <tr>
             <td>제목</td>
             <td>
-                <?php print $this->escape($dat['pLong']); ?>
+                <?php print $this->escape($dat['bTitle']); ?>
             </td>
         </tr>
         <tr>
             <td>구매한 상품</td>
             <td>
-                <?php print $this->escape($dat['pType']); ?>
+                <?php print $this->escape($dat['bLong']); ?>
             </td>
         </tr>
         <tr>
             <td>내용</td>
             <td>
-                <b>$ </b><?php print $this->escape($dat['pPrice']); ?>
+                <?php print $this->escape($dat['bContent']); ?>
             </td>
         </tr>
         <tr>
             <td>상품 이미지</td>
             <td>
-                <img src="/data/<?php print $this->escape($dat['pShort']); ?>.jpg" alt="">
+                <img src="/data/<?php print $this->escape($dat['bLong']); ?>.jpg" alt="">
                 <?php
                 $upfile_name = $this->escape($dat['upfile_name']);
                 $show_name = substr($upfile_name, 7);
                 //            var_dump($show_name);
                 //            echo $show_name;
-                $file_path = "./data/".$show_name;
+                $file_path = "./data/board/".$show_name;
                 $file_size = filesize($file_path);
                 chmod($file_path, 0755);
                 echo " 첨부파일 : $show_name ($file_size Byte) &nbsp;&nbsp;&nbsp;&nbsp;

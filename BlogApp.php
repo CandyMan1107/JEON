@@ -58,7 +58,7 @@ class BlogApp extends AppBase {
         //BoardController 클래스 관련 Routing
         '/board'                                   => array('controller' => 'board', 'action' => 'index'),
         '/board/:action'                          => array('controller' => 'board'),
-        '/board/:id/status/:bName'               => array('controller' => 'board', 'action' => 'specific'),  // 게시글 상세보기
+        '/board/:id/status/:user_id'               => array('controller' => 'board', 'action' => 'specific'),  // 게시글 상세보기
         '/download/:show_name'                     => array('controller' => 'board', 'action' => 'download'),
     );
 

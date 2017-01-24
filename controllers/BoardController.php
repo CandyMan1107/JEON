@@ -7,16 +7,18 @@ class BoardController extends Controller {
      ****************** index ********************
      */
     public function indexAction(){
-        $all = $this->_connect_model->get('Board')->getAllList();
-        $num = count($all);
-        // echo $num;
+        $user = $this->_session->get('user');
+        // echo ($user['user_name']);
+        //board 테이블에서 사용자 ID로 데이터를 조회해 옴(사용자의 글목록)
+            $dat = $this->_connect_model->get('Board')->getUserData($user['user_name']);
 
-        $index_view = $this->render(array(
-            'all'=>$all,
-            'num'=>$num
-        ));
+            $index_view = $this->render(array(
+                'statuses' => $dat, //글목록 정보
+                //'message' => '',  //글작성 전이라 공백처리,form 태그 내 입력창의 입력된 내용
+                '_token' => $this->getToken(self::POST),
+            ));
 
-        return $index_view;
+            return $index_view;
     }
 
     /**
@@ -25,7 +27,7 @@ class BoardController extends Controller {
     public function downloadAction($par){
         //$real_name = $par['real_name'];
         $show_name = $par['show_name'];
-        $file_path = "./data/".$show_name;
+        $file_path = "./data/board/".$show_name;
 
         //$real_type = $par['real_type'];
 
@@ -70,7 +72,8 @@ class BoardController extends Controller {
      ******************게시글 상세********************
      */
     public function specificAction($par){
-        $dat = $this->_connect_model->get('Board')->getSpecificBoard($par['id'],$par['bTitle']);
+        $dat = $this->_connect_model->get('Board')->getSpecificBoard($par['id'],$par['user_id']);
+
 
         $specific_view = $this->render(array(
             'dat'=>$dat
@@ -141,7 +144,7 @@ class BoardController extends Controller {
             'bContent'                  => $bContent,
             'upfile_name'               => $s_fileUpload
         );
-        var_dump($productV);
+        // var_dump($productV);
         $stt = $this->_connect_model->get('Board')->addBoard($productV);
 
         return $stt;

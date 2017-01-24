@@ -21,11 +21,11 @@ class BoardModel extends ExecuteModel {
      ******************게시글 상세********************
      */
     /// ***getSpecificBoard()***
-    public function getSpecificBoard($id, $bTitle) {
+    public function getSpecificBoard($id, $user_id) {
         $sql = "SELECT *
              FROM board
-             WHERE id = :id AND bTitle = :bTitle";
-        $specMsg = $this->getRecord($sql, array(':id' => $id, ':bTitle'=> $bTitle));
+             WHERE id = :id AND user_id = :user_id";
+        $specMsg = $this->getRecord($sql, array(':id' => $id, ':user_id'=> $user_id));
 
 //            var_dump($specMsg);
 
