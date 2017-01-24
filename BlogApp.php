@@ -54,6 +54,12 @@ class BlogApp extends AppBase {
         '/detail/:id'                            => array('controller' => 'product', 'action' => 'show'), // 상품 상세보기(고객용)
         '/product/:id/status/:pShort'            => array('controller' => 'product', 'action' => 'specific'),  // 상품 상세보기(관리자용)
         '/download/:show_name'                   => array('controller' => 'product', 'action' => 'download'),
+
+        //BoardController 클래스 관련 Routing
+        '/board'                                   => array('controller' => 'board', 'action' => 'index'),
+        '/board/:action'                          => array('controller' => 'board'),
+        '/board/:id/status/:bName'               => array('controller' => 'board', 'action' => 'specific'),  // 게시글 상세보기
+        '/download/:show_name'                     => array('controller' => 'board', 'action' => 'download'),
     );
 
   }//getRouteDefinition - function

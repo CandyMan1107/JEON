@@ -59,6 +59,14 @@ CREATE TABLE cart(
   PRIMARY KEY(id)
 );
 
-ALTER TABLE
-  product
-ADD FOREIGN KEY (user_id) REFERENCES user(id);
+CREATE TABLE board(
+   id INTEGER AUTO_INCREMENT,
+   hit INT,
+   user_id VARCHAR(20) NOT NULL,
+   bTitle VARCHAR(100) NOT NULL,
+   time_stamp DATETIME,
+   bLong VARCHAR(200) NOT NULL,
+   bContent VARCHAR(200) NOT NULL,
+   upfile_name VARCHAR(100),
+   PRIMARY KEY(id)
+);

@@ -1,5 +1,4 @@
 <?php $this->setPageTitle('title','상품 등록') ?>
-<script type="text/javascript" src="/js/addScript.js"></script>
 <div class="smallFake"></div>
 <div class="add_div">
 

@@ -31,9 +31,9 @@
         <a href="<?php print $base_url; ?>/">
             MICROPHONES &nbsp;
         </a>
-<!--        <a href="--><?php //print $base_url; ?><!--/product/accessories">-->
-<!--            ACCESSORIES &nbsp;-->
-<!--        </a>-->
+        <a href="<?php print $base_url; ?>/board">
+            자유게시판 &nbsp;
+        </a>
         <a href="<?php print $base_url; ?>/product/addProduct">
             기타 &nbsp;
         </a>
