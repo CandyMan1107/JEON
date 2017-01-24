@@ -15,25 +15,7 @@
             return $allList;
         }
 
-        /**
-         ******************상품리스트********************
-         */
-        public function getProductList($pType) {
-            $sql = "
-                SELECT *
-                FROM product
-                WHERE pType = :pType
-                ORDER BY id DESC
-            ";
 
-            $productList = $this->execute($sql, array(
-                ':pType'=>$pType
-            ));
-
-            $productList = $this->getFetchAll($productList);
-
-            return $productList;
-        }
 
         /**
          ******************상품상세(관리자용)********************

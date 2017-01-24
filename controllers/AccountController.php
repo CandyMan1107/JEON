@@ -144,6 +144,7 @@ class AccountController extends Controller{
         return $this->redirect('/');
       }
     }
+
     return $this->render(array(
       'user_name' => $user_name,
       'password' => $password,
