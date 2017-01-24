@@ -175,6 +175,9 @@ class AccountController extends Controller{
         $pCount = $this->_request->getPost('pCount');
         $buyNum = $this->_request->getPost('buyNum');
 
+        //print $pCount;
+        //print $buyNum;
+
         $pCount -= $buyNum;
 
         $productV = array(
@@ -183,19 +186,20 @@ class AccountController extends Controller{
             'pShort'                    => $pShort,
             'pLong'                     => $pLong,
             'pPrice'                    => $pPrice,
-            'pCount'                    => $pCount
+            'pCount'                    => $pCount,
+            'buyNum'                    => $buyNum
         );
 
 
-        // var_dump($productV);
+       //  var_dump($productV);
         $stt = $this->_connect_model->get('User')->addCart($productV);
 
-        echo ("
-                <script>
-                    alert('상품 구매를 완료했습니다.');
-                    history.go(-1);
-                </script>
-            ");
+//        echo ("
+//                <script>
+//                    alert('상품 구매를 완료했습니다.');
+//                    history.go(-1);
+//                </script>
+//            ");
 
         return $stt;
     }

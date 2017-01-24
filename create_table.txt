@@ -54,6 +54,8 @@ CREATE TABLE cart(
   pShort VARCHAR(100) NOT NULL,
   pLong VARCHAR(200) NOT NULL,
   pPrice INT NOT NULL,
+  pCount INT NOT NULL,
+  buyNum INT NOT NULL,
   PRIMARY KEY(id)
 );
 

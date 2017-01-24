@@ -14,7 +14,7 @@
         <input type="hidden" name="pShort" value="<?php print $this->escape($dat['pShort']); ?>" />
         <input type="hidden" name="pLong" value="<?php print $this->escape($dat['pLong']); ?>" />
         <input type="hidden" name="pPrice" value="<?php print $this->escape($dat['pPrice']); ?>" />
-        <input type="hidden" name="pCount" value="<?php print $this->escape($dat['pPrice']); ?>" />
+        <input type="hidden" name="pCount" value="<?php print $this->escape($dat['pCount']); ?>" />
 
         <h1><?php print $this->escape($dat['pLong']); ?></h1>
         <h2>$ <?php print $this->escape($dat['pPrice']); ?></h2>

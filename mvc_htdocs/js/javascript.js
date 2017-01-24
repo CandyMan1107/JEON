@@ -15,3 +15,13 @@ function showDivs(n) {
     }
     x[slideIndex-1].style.display = "block";
 }
+
+function buySuccess() {
+    alert('상품 구매를 완료했습니다.');
+    history.go(-1);
+}
+
+function addSuccess() {
+    alert('상품 등록을 완료했습니다.');
+    history.go(-1);
+}

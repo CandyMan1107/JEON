@@ -61,10 +61,12 @@ class UserModel extends ExecuteModel {
         $pShort                 = $productV['pShort'];
         $pLong                  = $productV['pLong'];
         $pPrice                 = $productV['pPrice'];
+        $pCount                 = $productV['pCount'];
+        $buyNum                 = $productV['buyNum'];
 
         $sql = "
-                INSERT INTO cart(user_id, time_stamp, pShort, pLong, pPrice)
-                VALUES (:user_id, :time_stamp, :pShort, :pLong, :pPrice);
+                INSERT INTO cart(user_id, time_stamp, pShort, pLong, pPrice, pCount, buyNum)
+                VALUES (:user_id, :time_stamp, :pShort, :pLong, :pPrice, :pCount, :buyNum);
             ";
 
         $this->execute($sql, array(
@@ -72,8 +74,21 @@ class UserModel extends ExecuteModel {
             ':time_stamp' => $time_stamp,
             ':pShort'=>$pShort,
             ':pLong'=>$pLong,
-            ':pPrice'=>$pPrice
+            ':pPrice'=>$pPrice,
+            ':pCount'=>$pCount,
+            ':buyNum'=>$buyNum
         ));
+
+        $sql = "
+              UPDATE product
+              SET pCount = :pCount
+        ";
+
+        $this->execute($sql, array(
+            ':pCount'=>$pCount
+        ));
+
+        // print $pCount;
     }
 
     /**
