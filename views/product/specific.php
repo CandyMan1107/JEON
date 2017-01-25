@@ -54,6 +54,10 @@
                 <?php print $this->escape($dat['pCount']); ?><b> 개</b>
                 &nbsp; | &nbsp;
                 <form action="<?php print $base_url; ?>/product/plusCount" method="post">
+                    <input type="hidden" name="_token" value="<?php print $this->escape($_token); ?>" />
+                    <input type="hidden" name="pCount" value="<?php print $this->escape($dat['pCount']); ?>" />
+                    <input type="hidden" name="pShort" value="<?php print $this->escape($dat['pShort']); ?>" />
+
                     <input type="number" name="plusCount" placeholder="" required/><b> 개</b>
                     <input type="submit" class="plus_Btn" value="재고 추가">
                 </form>

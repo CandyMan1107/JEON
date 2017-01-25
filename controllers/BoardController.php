@@ -2,7 +2,7 @@
 class BoardController extends Controller {
     protected $_authentication = array('index','post'); //login필요한 action정의
     const POST = 'status/post';
-    const BOARD = 'board/addForm';
+    const BOARD = 'board/index';
 
     /**
      ****************** index ********************
@@ -15,7 +15,6 @@ class BoardController extends Controller {
 
             $index_view = $this->render(array(
                 'statuses' => $dat, //글목록 정보
-                //'message' => '',  //글작성 전이라 공백처리,form 태그 내 입력창의 입력된 내용
                 '_token' => $this->getToken(self::POST),
             ));
 
@@ -154,13 +153,14 @@ class BoardController extends Controller {
             'upfile_name'               => $s_fileUpload
         );
         // var_dump($productV);
+
         $stt = $this->_connect_model->get('Board')->addBoard($productV);
 
-        echo "
-            <script>
-                history.go(-2);
-            </script>
-        ";
+        $index_view = $this->render(array(
+            '_token' => $this->getToken(self::BOARD)
+        ));
+
+        return $index_view;
     }
 
 

@@ -4,7 +4,6 @@
         const POST = 'status/post';
         const MICROPHONE = 'product/microphone';    // 마이크 상품
         const PRODUCT = 'product/addProduct';    // 관리자 상품 등록
-        const SPECIFIC = 'product/specific';    // 관리자 상품 상세
 
 
 
@@ -94,7 +93,8 @@
             $dat = $this->_connect_model->get('Product')->getSpecificProduct($par['id'],$par['pShort']);
 
             $specific_view = $this->render(array(
-                'dat'=>$dat
+                'dat'=>$dat,
+                '_token' => $this->getToken(self::PRODUCT)
             ));
 
             return $specific_view;
@@ -138,8 +138,7 @@
 
                 $index_view = $this->render(array(
                     'statuses' => $dat, //글목록 정보
-                    //'message' => '',  //글작성 전이라 공백처리,form 태그 내 입력창의 입력된 내용
-                    '_token' => $this->getToken(self::POST),
+                    '_token' => $this->getToken(self::PRODUCT),
                 ));
 
                 return $index_view;
@@ -192,9 +191,8 @@
                 'upfile_name'               => $s_fileUpload
             );
             // var_dump($productV);
-            $stt = $this->_connect_model->get('Product')->addProduct($productV);
+            $this->_connect_model->get('Product')->addProduct($productV);
 
-            return $stt;
         }
 
         /**
@@ -209,20 +207,30 @@
 
             //2> Token 체크
             $token = $this->_request->getpost('_token');
-            if(!$this->checkToken(self::SPECIFIC, $token)){
-                return $this->redirect('/'.self::SPECIFIC);
+            if(!$this->checkToken(self::PRODUCT, $token)){
+                return $this->redirect('/'.self::PRODUCT);
             }
 
+            $pShort = $this->_request->getPost('pShort');
+
             $pCount = $this->_request->getPost('pCount');
+            $plusCount = $this->_request->getPost('plusCount');
+
+            $pCount += $plusCount;
 
             $productV = array(
-                'user_id'                   => $user['user_name'],
+                'pShort'                   => $pShort,
                 'pCount'                    => $pCount
             );
             // var_dump($productV);
-            $stt = $this->_connect_model->get('Product')->plusCount($productV);
 
-            return $stt;
+            $this->_connect_model->get('Product')->getPlusCount($productV);
+
+            echo "
+                <script>
+                history.go(-1);
+                </script>
+            ";
         }
 
 

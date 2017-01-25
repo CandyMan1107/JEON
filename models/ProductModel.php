@@ -71,6 +71,28 @@
             return $result;
         }
 
+        /**
+         ******************재고추가********************
+         */
+        public function getPlusCount($productV){
+            $pCount                 = $productV['pCount'];
+            $pShort                    = $productV['pShort'];
+
+            $sql = "
+                UPDATE product
+                SET pCount = :pCount
+                WHERE pShort = :pShort
+            ";
+
+            $result = $this->execute($sql, array(
+                ':pCount'=>$pCount,
+                ':pShort'=>$pShort
+            ));
+
+            return $result;
+        }
+
+
         // *** getUserData()***
         public function getUserData($user_id){
             $sql = "SELECT *
