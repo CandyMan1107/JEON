@@ -17,6 +17,7 @@
                 <td>구매 제품</td>
                 <td>
                     <select name="bLong">
+                        <option value="blank">선택하지 않음</option>
                         <option value="FreeSpace_1">Free Space</option>
                         <option value="XLR_1">Free Space XLR</option>
                         <option value="Pro2_2">Free Space Pro II</option>

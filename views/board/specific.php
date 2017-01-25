@@ -46,10 +46,14 @@
         <tr>
             <td>상품 이미지</td>
             <td>
-                <img src="/data/board/<?php print $this->escape($dat['bLong']); ?>.jpg" alt="">
                 <?php
-                $upfile_name = $this->escape($dat['upfile_name']);
-                $show_name = substr($upfile_name, 13);
+                    $upfile_name = $this->escape($dat['upfile_name']);
+                    $show_name = substr($upfile_name, 13);
+                ?>
+                <img src="/data/board/<?php print $show_name; ?>" alt="">
+                <?php
+                // $upfile_name = $this->escape($dat['upfile_name']);
+                // $show_name = substr($upfile_name, 13);
                 //            var_dump($show_name);
                 //            echo $show_name;
                 $file_path = "./data/board/".$show_name;
