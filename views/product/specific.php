@@ -52,6 +52,11 @@
             <td>상품재고</td>
             <td>
                 <?php print $this->escape($dat['pCount']); ?><b> 개</b>
+                &nbsp; | &nbsp;
+                <form action="<?php print $base_url; ?>/product/plusCount" method="post">
+                    <input type="number" name="plusCount" placeholder="" required/><b> 개</b>
+                    <input type="submit" class="plus_Btn" value="재고 추가">
+                </form>
             </td>
         </tr>
         <tr>

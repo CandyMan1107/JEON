@@ -4,6 +4,7 @@
         const POST = 'status/post';
         const MICROPHONE = 'product/microphone';    // 마이크 상품
         const PRODUCT = 'product/addProduct';    // 관리자 상품 등록
+        const SPECIFIC = 'product/specific';    // 관리자 상품 상세
 
 
 
@@ -196,6 +197,33 @@
             return $stt;
         }
 
+        /**
+         ******************상품 재고 plusCount********************
+         */
+        public function plusCountAction(){
+            $user = $this->_session->get('user');
+
+            if(!$this->_request->isPost()){
+                $this->httpNotFound(); //FileNotFoundException 예외객체를 생성
+            }
+
+            //2> Token 체크
+            $token = $this->_request->getpost('_token');
+            if(!$this->checkToken(self::SPECIFIC, $token)){
+                return $this->redirect('/'.self::SPECIFIC);
+            }
+
+            $pCount = $this->_request->getPost('pCount');
+
+            $productV = array(
+                'user_id'                   => $user['user_name'],
+                'pCount'                    => $pCount
+            );
+            // var_dump($productV);
+            $stt = $this->_connect_model->get('Product')->plusCount($productV);
+
+            return $stt;
+        }
 
 
 
