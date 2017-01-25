@@ -149,7 +149,11 @@ class BoardController extends Controller {
         // var_dump($productV);
         $stt = $this->_connect_model->get('Board')->addBoard($productV);
 
-        return $stt;
+        echo "
+            <script>
+                history.go(-2);
+            </script>
+        ";
     }
 
 
