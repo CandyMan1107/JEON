@@ -86,6 +86,26 @@ class BoardModel extends ExecuteModel {
         return $result;
     }
 
+    /**
+     ******************게시글 삭제********************
+     */
+    public function deleteBoard($productV){
+        $user_id                = $productV['user_id'];
+        $id                     = $productV['id'];
+
+        $sql = "
+                DELETE TABLE board
+                WHERE id = :id
+            ";
+
+        $result = $this->execute($sql, array(
+            ':user_id'=>$user_id,
+            ':id'=>$id
+        ));
+
+        return $result;
+    }
+
     // *** getUserData()***
     public function getUserData($user_id){
         $sql = "SELECT *

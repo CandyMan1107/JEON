@@ -76,7 +76,8 @@ class BoardController extends Controller {
         $dat = $this->_connect_model->get('Board')->getSpecificBoard($par['id']);
 
         $specific_view = $this->render(array(
-            'dat'=>$dat
+            'dat'=>$dat,
+            '_token' => $this->getToken(self::BOARD)
         ));
 
         // var_dump($dat);
@@ -161,6 +162,39 @@ class BoardController extends Controller {
         echo "<script>history.go(-2);</script>";
     }
 
+    /**
+     ******************게시글 delete********************
+     */
+    public function deleteAction(){
+        $user = $this->_session->get('user');
+
+        if(!$this->_request->isPost()){
+            $this->httpNotFound(); //FileNotFoundException 예외객체를 생성
+        }
+
+        //2> Token 체크
+        $token = $this->_request->getpost('_token');
+        if(!$this->checkToken(self::BOARD, $token)){
+            return $this->redirect('/'.self::BOARD);
+        }
+
+        $id = $this->_request->getPost('id');
+
+        $productV = array(
+            'user_id'                   => $user['user_name'],
+            'id'                        => $id
+        );
+        // var_dump($productV);
+
+        $stt = $this->_connect_model->get('Board')->deleteBoard($productV);
+
+        $delete_view = $this->render(array(
+            'productV'=>$productV,
+            '_token' => $this->getToken(self::BOARD)
+        ));
+
+        echo "<script>history.go(-2);</script>";
+    }
 
 }
 

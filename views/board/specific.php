@@ -66,4 +66,15 @@
         </tr>
     </table>
 </div>
+<?php
+$user_id = $this->escape($dat['user_id']);
+print $user_id;
+if ($user_id) {
+    ?>
+    <form action="<?php print $base_url; ?>/board/delete" method="post">
+        <input type="hidden" name="_token" value="<?php print $this->escape($_token); ?>" />
+        <input type="hidden" name="id" value="<?php print $this->escape($dat['id']); ?>" />
+        <input type="submit" class="add_Btn" value="삭제하기" />
+    </form>
+<?php } ?>
 <div class="fake"></div>
