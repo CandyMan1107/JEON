@@ -191,16 +191,10 @@ class BoardController extends Controller {
         );
         // var_dump($productV);
 
-        $this->_connect_model->get('Board')->deleteBoard($productV);
-
-        $delete_view = $this->render(array(
-            'productV'=>$productV,
-            '_token' => $this->getToken(self::BOARD)
-        ));
+        $stt = $this->_connect_model->get('Board')->deleteBoard($productV);
 
         echo "<script>history.go(-2);</script>";
 
-        return $delete_view;
     }
 
 }
