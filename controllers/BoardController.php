@@ -113,7 +113,9 @@ class BoardController extends Controller {
      ******************게시글 등록 형식********************
      */
     public function addFormAction(){
-            $addForm_view = $this->render();
+            $addForm_view = $this->render(array(
+                '_token' => $this->getToken(self::BOARD)
+            ));
 
             return $addForm_view;
     }
@@ -156,11 +158,7 @@ class BoardController extends Controller {
 
         $stt = $this->_connect_model->get('Board')->addBoard($productV);
 
-        $index_view = $this->render(array(
-            '_token' => $this->getToken(self::BOARD)
-        ));
-
-        return $index_view;
+        echo "<script>history.go(-2);</script>";
     }
 
 

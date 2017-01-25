@@ -21,6 +21,7 @@
                         <option value="XLR_1">Free Space XLR</option>
                         <option value="Pro2_2">Free Space Pro II</option>
                         <option value="Omni_2">Omni</option>
+                        <option value="OmniPro_1">Omni Pro</option>
                     </select>
                 </td>
             </tr>
