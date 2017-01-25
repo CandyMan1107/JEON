@@ -39,7 +39,7 @@ class BoardModel extends ExecuteModel {
             WHERE id = :id
         ";
 
-        $specMsg = array();
+        //$specMsg = array();
         $specMsg = $dat;
 
         $dat = $this->execute($sql, array(

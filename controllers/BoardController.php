@@ -2,6 +2,7 @@
 class BoardController extends Controller {
     protected $_authentication = array('index','post'); //login필요한 action정의
     const POST = 'status/post';
+    const BOARD = 'board/addForm';
 
     /**
      ****************** index ********************
@@ -126,6 +127,12 @@ class BoardController extends Controller {
 
         if(!$this->_request->isPost()){
             $this->httpNotFound(); //FileNotFoundException 예외객체를 생성
+        }
+
+        //2> Token 체크
+        $token = $this->_request->getpost('_token');
+        if(!$this->checkToken(self::BOARD, $token)){
+            return $this->redirect('/'.self::BOARD);
         }
 
         $now = new DateTime();

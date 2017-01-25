@@ -3,7 +3,7 @@
         protected $_authentication = array('index','post'); //login필요한 action정의
         const POST = 'status/post';
         const MICROPHONE = 'product/microphone';    // 마이크 상품
-        const ADD = 'product/addProduct';    // 관리자 상품 등록
+        const PRODUCT = 'product/addProduct';    // 관리자 상품 등록
 
 
 
@@ -160,6 +160,12 @@
 
             if(!$this->_request->isPost()){
                 $this->httpNotFound(); //FileNotFoundException 예외객체를 생성
+            }
+
+            //2> Token 체크
+            $token = $this->_request->getpost('_token');
+            if(!$this->checkToken(self::PRODUCT, $token)){
+                return $this->redirect('/'.self::PRODUCT);
             }
 
             $now = new DateTime();
