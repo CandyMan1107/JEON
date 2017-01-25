@@ -9,7 +9,7 @@
         <?php print $this->escape($board['user_id']); ?>
     </td>
     <td>
-        <a href="<?php print $base_url; ?>/board/<?php print $this->escape($board['id']); ?>/status/<?php print $this->escape($board['bTitle']); ?>">
+        <a href="<?php print $base_url; ?>/board/<?php print $this->escape($board['id']); ?>/status">
             <?php print $this->escape($board['bTitle']); ?>
         </a>
     </td>

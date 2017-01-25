@@ -200,6 +200,10 @@ select {
   color: black;
 }
 
+.back_Div {
+  padding-bottom: 10px;
+}
+
 .back_Btn {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;

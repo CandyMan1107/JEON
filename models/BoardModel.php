@@ -8,6 +8,7 @@ class BoardModel extends ExecuteModel {
         $sql = "
                 SELECT *
                 FROM board
+                ORDER BY time_stamp DESC
             ";
 
         $allList = $this->getAllRecord($sql);
@@ -21,13 +22,13 @@ class BoardModel extends ExecuteModel {
      ******************게시글 상세********************
      */
     /// ***getSpecificBoard()***
-    public function getSpecificBoard($id, $user_id) {
+    public function getSpecificBoard($id) {
         $sql = "SELECT *
              FROM board
-             WHERE id = :id AND user_id = :user_id";
-        $specMsg = $this->getRecord($sql, array(':id' => $id, ':user_id'=> $user_id));
+             WHERE id = :id";
+        $specMsg = $this->getRecord($sql, array(':id' => $id));
 
-//            var_dump($specMsg);
+        //    var_dump($specMsg);
 
         return $specMsg;
     }

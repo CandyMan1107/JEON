@@ -3,7 +3,7 @@
 <script type="text/javascript" src="/js/buyScript.js"></script>
 <div class="smallFake"></div>
 
-<div>
+<div class="back_Div">
     <input type="button" class="back_Btn" onClick="history.go(-1)" value=" < " />
 </div>
 <div class="product_img">

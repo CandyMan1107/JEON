@@ -1,6 +1,6 @@
 <?php $this->setPageTitle('title','게시판 작성 양식') ?>
 <div class="smallFake"></div>
-<div>
+<div class="back_Div">
     <input type="button" class="back_Btn" onClick="history.go(-1)" value="<" />
 </div>
 <form action="<?php print $base_url; ?>/board/insert" method="post" enctype="multipart/form-data">

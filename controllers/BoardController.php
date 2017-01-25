@@ -10,7 +10,7 @@ class BoardController extends Controller {
         $user = $this->_session->get('user');
         // echo ($user['user_name']);
         //board 테이블에서 사용자 ID로 데이터를 조회해 옴(사용자의 글목록)
-            $dat = $this->_connect_model->get('Board')->getUserData($user['user_name']);
+            $dat = $this->_connect_model->get('Board')->getAllList();
 
             $index_view = $this->render(array(
                 'statuses' => $dat, //글목록 정보
@@ -72,7 +72,8 @@ class BoardController extends Controller {
      ******************게시글 상세********************
      */
     public function specificAction($par){
-        $dat = $this->_connect_model->get('Board')->getSpecificBoard($par['id'],$par['user_id']);
+
+        $dat = $this->_connect_model->get('Board')->getSpecificBoard($par['id']);
 
 
         $specific_view = $this->render(array(
