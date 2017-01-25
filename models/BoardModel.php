@@ -26,9 +26,27 @@ class BoardModel extends ExecuteModel {
         $sql = "SELECT *
              FROM board
              WHERE id = :id";
-        $specMsg = $this->getRecord($sql, array(':id' => $id));
 
-        //    var_dump($specMsg);
+        $dat = $this->getRecord($sql, array(':id' => $id));
+
+        $hit = $dat['hit'];
+
+        $up_hit = $hit + 1;
+
+        $sql = "
+            UPDATE board
+            SET hit = :up_hit
+            WHERE id = :id
+        ";
+
+        $specMsg = array();
+        $specMsg = $dat;
+
+        $dat = $this->execute($sql, array(
+            ':id' => $id,
+            ':up_hit' => $up_hit
+        ));
+
 
         return $specMsg;
     }

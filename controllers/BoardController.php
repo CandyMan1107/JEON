@@ -75,10 +75,11 @@ class BoardController extends Controller {
 
         $dat = $this->_connect_model->get('Board')->getSpecificBoard($par['id']);
 
-
         $specific_view = $this->render(array(
             'dat'=>$dat
         ));
+
+        // var_dump($dat);
 
         return $specific_view;
     }

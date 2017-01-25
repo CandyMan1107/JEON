@@ -83,10 +83,14 @@ class BlogController extends Controller{
   public function specificAction($par){
     $dat = $this->_connect_model->get('Status')->getSpecificMessage($par['id'],$par['user_name']);
 
+
     if(!$dat){
       $this->httpNotFound();
     }
+
     $specific_view = $this->render(array('status'=>$dat));
+
+
     return $specific_view;
   }
 }
