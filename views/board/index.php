@@ -1,7 +1,8 @@
 <?php $this->setPageTitle('title','자유게시판') ?>
 <div class="smallFake"></div>
 <div class="back_Div">
-    <input type="button" class="back_Btn" onClick="history.go(-1)" value="<" />
+    <input type="button" class="back_Btn" onClick="history.go(-1)" value="<" /> &nbsp;
+    <h1>자유게시판</h1>
 </div>
 <div>
     <table>
