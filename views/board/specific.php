@@ -68,8 +68,10 @@
 </div>
 <?php
 $user_id = $this->escape($dat['user_id']);
-print $user_id;
-if ($user_id) {
+$this_user = $this->escape($this_user);
+//print $this_user;
+// print $user_id;
+if ($user_id == $this_user) {
     ?>
     <form action="<?php print $base_url; ?>/board/delete" method="post">
         <input type="hidden" name="_token" value="<?php print $this->escape($_token); ?>" />

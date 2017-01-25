@@ -59,7 +59,7 @@ class BlogApp extends AppBase {
         '/board'                                   => array('controller' => 'board', 'action' => 'index'),
         '/board/:action'                          => array('controller' => 'board'),
         '/board/:id/status'                        => array('controller' => 'board', 'action' => 'specific'),  // 게시글 상세보기
-        '/download/board/:show_name'                     => array('controller' => 'board', 'action' => 'download'),
+        '/download/board/:show_name'              => array('controller' => 'board', 'action' => 'download'),
     );
 
   }//getRouteDefinition - function

@@ -90,16 +90,12 @@ class BoardModel extends ExecuteModel {
      ******************게시글 삭제********************
      */
     public function deleteBoard($productV){
-        $user_id                = $productV['user_id'];
         $id                     = $productV['id'];
+        // print $id;
 
-        $sql = "
-                DELETE TABLE board
-                WHERE id = :id
-            ";
+        $sql = "DELETE FROM board WHERE id = :id";
 
         $result = $this->execute($sql, array(
-            ':user_id'=>$user_id,
             ':id'=>$id
         ));
 
